@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "EAID Quick Renamer",
+  "description": "Automates Edit -> rename -> Save on the EA account-information page.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "EAID Quick Renamer",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": [
+    "https://myaccount.ea.com/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://myaccount.ea.com/am/ui/account-information*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

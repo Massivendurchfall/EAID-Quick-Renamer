@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EAID Quick Renamer</title>
+    <style>
+      :root {
+        --bg: #f4efe6;
+        --panel: #fff9f2;
+        --text: #1d1b19;
+        --muted: #655f57;
+        --accent: #005f52;
+        --danger: #b02a37;
+        --ok: #1f7a3f;
+        --border: #d7cfc2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 340px;
+        position: relative;
+        background: radial-gradient(circle at 20% 0%, #fff5df 0%, var(--bg) 55%, #efe7dc 100%);
+        color: var(--text);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .wrap {
+        padding: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      h1 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      p.note {
+        margin: 0 0 12px 0;
+        font-size: 12px;
+        line-height: 1.35;
+        color: var(--muted);
+      }
+
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 10px 0 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        padding: 9px 10px;
+        background: #ffffff;
+        color: var(--text);
+        outline: none;
+      }
+
+      input:focus {
+        border-color: var(--accent);
+      }
+
+      .buttons {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .secondary {
+        background: #e7dfd2;
+        color: #2b2927;
+      }
+
+      .danger {
+        background: var(--danger);
+        color: #fff;
+      }
+
+      .status {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.35;
+        color: var(--muted);
+      }
+
+      .status strong {
+        color: var(--text);
+      }
+
+      .ok {
+        color: var(--ok);
+        font-weight: 700;
+      }
+
+      .error {
+        color: var(--danger);
+        font-weight: 700;
+      }
+
+      .credit {
+        margin-top: 8px;
+        font-size: 10px;
+        color: #8a8278;
+        text-align: right;
+        letter-spacing: 0.2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>EAID Quick Renamer</h1>
+
+        <label for="intervalSec">Loop interval in seconds (min 2)</label>
+        <input id="intervalSec" type="number" min="2" step="1" value="60" />
+
+        <div class="buttons">
+          <button id="runOnceBtn" class="primary">Run once</button>
+          <button id="startLoopBtn" class="secondary">Start loop</button>
+          <button id="stopLoopBtn" class="danger">Stop loop</button>
+        </div>
+
+        <div id="status" class="status"></div>
+        <div id="result" class="status"></div>
+        <div class="credit">made by tape</div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
